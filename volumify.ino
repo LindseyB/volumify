@@ -7,8 +7,8 @@
 
 IRsendRaw mySender;
 int sample;
-const int THRESHOLD_ON = 800;
-const int THRESHOLD_OFF = 300;
+const int THRESHOLD_ON = 600;
+const int THRESHOLD_OFF = 400;
 bool acOn = false;
 
 void setup() {
