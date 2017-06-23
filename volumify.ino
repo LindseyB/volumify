@@ -3,7 +3,7 @@
 #include <IRLib_HashRaw.h>
 
 #define MIC_PIN 0
-#define RAW_DATA_LEN = 68;
+#define RAW_DATA_LEN 68
 
 IRsendRaw mySender;
 int sample;
@@ -17,7 +17,7 @@ void setup() {
 }
 
 // Raw volume up data
-uint16_t rawData[RAW_DATA_LEN]={
+uint16_t rawDataVolumeUp[RAW_DATA_LEN]={
   4514, 4570, 526, 1762, 498, 1758, 502, 1758, 
   502, 626, 506, 626, 502, 626, 506, 622, 
   498, 634, 494, 1762, 498, 1762, 502, 1754, 
@@ -40,7 +40,6 @@ uint16_t rawDataVolumeDown[RAW_DATA_LEN]={
   506, 626, 502, 626, 506, 622, 506, 1754, 
   498, 630, 498, 1762, 502, 1758, 502, 1754, 
   506, 1754, 506, 1000};
-};
 
 
 void loop() {
@@ -57,7 +56,7 @@ void loop() {
   } else if (sample <= THRESHOLD_OFF && acOn) {
     acOn = false;
     for(int i = 0; i <= 10; i++) {
-      mySender.send(rawDataVolumeUp, RAW_DATA_LEN, 36);
+      mySender.send(rawDataVolumeDown, RAW_DATA_LEN, 36);
       Serial.println(F("Sent signal."));
     }
   }
